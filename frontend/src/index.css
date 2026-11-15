@@ -1,0 +1,982 @@
+/* =========================================================
+   PRITHVIX — PREMIUM BOTANICAL THEME
+========================================================= */
+
+:root {
+    font-family: Inter, "Segoe UI", system-ui, sans-serif;
+
+    --bg: #f4f7f2;
+    --surface: #ffffff;
+    --surface-soft: #f0f6ef;
+
+    --ink: #263b30;
+    --mute: #75847a;
+    --line: #e1e9e1;
+
+    --green: #347B4C;
+    --green-dark: #24583D;
+    --green-light: #EAF3E9;
+    --lime: #A8D957;
+
+    --sand: #F2F5E9;
+    --warn: #d99a32;
+    --crit: #c4514b;
+    --ok: #347B4C;
+    --info: #4385a8;
+
+    --radius: 13px;
+    --shadow: 0 5px 20px rgba(24, 58, 50, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(52, 123, 76, 0.22);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   APPLICATION SHELL
+========================================================= */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+/* =========================================================
+   PREMIUM BOTANICAL SIDEBAR
+========================================================= */
+
+.app>nav {
+    width: 245px;
+    min-width: 245px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 25px 15px;
+
+    background: #183A32;
+    color: #FFFFFF;
+    border-right: 1px solid #24483D;
+}
+
+.logo {
+    padding: 4px 12px 30px;
+    color: #FFFFFF;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.logo::after {
+    content: ".";
+    color: #A8D957;
+}
+
+.app>nav button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+
+    background: transparent;
+    color: #DCE9DF;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+.app>nav button:hover {
+    background: #254D3D;
+    color: #FFFFFF;
+}
+
+.app>nav button.on {
+    background: #347B4C;
+    color: #FFFFFF;
+    border-left: 4px solid #A8D957;
+    font-weight: 700;
+}
+
+.app>nav button svg {
+    flex-shrink: 0;
+}
+
+.app>nav small {
+    margin-top: auto;
+    padding: 20px 10px 5px;
+    color: #AFC9B6;
+    font-size: 11px;
+}
+
+/* =========================================================
+   MAIN AREA AND TOP HEADER
+========================================================= */
+
+.app>main {
+    flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
+    padding: 0 30px 40px;
+}
+
+.app>main>header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+
+    min-height: 76px;
+    margin: 0 -30px 28px;
+    padding: 14px 30px;
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(30, 60, 40, 0.025);
+    backdrop-filter: blur(12px);
+}
+
+.app>main>header span {
+    color: var(--mute);
+    font-size: 12px;
+}
+
+.app>main>header select {
+    max-width: 240px;
+}
+
+.pg {
+    width: 100%;
+    max-width: 1500px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+}
+
+h1 {
+    margin: 0 0 9px;
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 750;
+}
+
+h2 {
+    margin: 0 0 15px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+p {
+    margin-top: 0;
+}
+
+.src {
+    color: var(--mute);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   DEMO DATA NOTICE
+========================================================= */
+
+.demo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px 15px;
+    margin-bottom: 22px;
+
+    color: #78551c;
+    background: #fbf5e8;
+
+    border: 1px solid #f0e2c4;
+    border-left: 4px solid var(--warn);
+    border-radius: 8px;
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   PANELS / CARDS
+========================================================= */
+
+.panel {
+    min-width: 0;
+    padding: 20px;
+    margin-bottom: 17px;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.panel h2 {
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* =========================================================
+   TWO-COLUMN LAYOUT
+========================================================= */
+
+.cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 17px;
+}
+
+.cols>* {
+    min-width: 0;
+}
+
+/* =========================================================
+   RECOMMENDED ACTIONS AND ALERTS
+========================================================= */
+
+.act {
+    position: relative;
+
+    padding: 13px 15px;
+    margin-bottom: 10px;
+
+    background: #fff9ed;
+    border: 1px solid #f0e4cc;
+    border-left: 4px solid var(--warn);
+    border-radius: 9px;
+
+    line-height: 1.55;
+}
+
+.act b {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ink);
+    font-size: 13px;
+}
+
+.act small {
+    display: block;
+    margin-top: 5px;
+    color: var(--mute);
+    font-size: 11px;
+}
+
+.act.c {
+    background: #fff2f0;
+    border-color: #f1d8d4;
+    border-left-color: var(--crit);
+}
+
+.act.i {
+    background: #eff7fb;
+    border-color: #dceaf2;
+    border-left-color: var(--info);
+}
+
+.act.n {
+    background: #eff7f0;
+    border-color: #dcebdd;
+    border-left-color: var(--ok);
+}
+
+/* =========================================================
+   SOIL MOISTURE / NDVI GAUGES
+========================================================= */
+
+.gauge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 40px;
+    padding: 9px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.gauge>span:first-child {
+    width: 112px;
+    flex-shrink: 0;
+
+    color: var(--mute);
+    font-size: 12px;
+}
+
+.gauge>span:last-child {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.gauge b {
+    color: var(--green);
+    font-size: 14px;
+}
+
+.bar {
+    flex: 1;
+    min-width: 35px;
+    height: 9px;
+
+    overflow: hidden;
+
+    background: #e9eee8;
+    border-radius: 20px;
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #A8D957, #347B4C);
+    border-radius: inherit;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    padding: 13px 12px;
+
+    color: #66776b;
+    background: #f3f7f2;
+
+    border-bottom: 1px solid var(--line);
+
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+tbody tr:hover {
+    background: #f7faf6;
+}
+
+/* =========================================================
+   FILTER CHIPS AND PAGE CONTROLS
+========================================================= */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    margin: 15px 0;
+}
+
+.chips button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 37px;
+    padding: 8px 14px;
+
+    color: var(--ink);
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.chips button:hover,
+.btn:hover {
+    color: var(--green);
+    background: var(--green-light);
+    border-color: #b8d5bf;
+}
+
+.chips button.on,
+.btn.p {
+    color: #fff;
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.chips button.on:hover,
+.btn.p:hover {
+    background: var(--green-dark);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   CROP ROTATION TIMELINE
+========================================================= */
+
+.tl {
+    display: grid;
+    grid-template-columns: 85px repeat(4, minmax(110px, 1fr));
+    gap: 6px;
+
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tl div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 55px;
+    padding: 9px;
+
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tl .h {
+    min-height: 35px;
+    color: var(--mute);
+    background: #f3f6f2;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.leg {
+    color: #fff;
+    background: #6F9F68;
+}
+
+.cer {
+    color: #fff;
+    background: #347B4C;
+}
+
+.oil {
+    color: #fff;
+    background: #A58A48;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map,
+.leaflet-container {
+    width: 100%;
+    height: 460px;
+    min-height: 350px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    z-index: 1;
+}
+
+.leaflet-container {
+    font-family: inherit;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+input,
+select,
+textarea {
+    max-width: 100%;
+    min-height: 39px;
+    padding: 9px 12px;
+
+    color: var(--ink);
+    background: #fff;
+
+    border: 1px solid #dce5dc;
+    border-radius: 8px;
+}
+
+input::placeholder {
+    color: #a0aca2;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #a7c8ad;
+}
+
+label {
+    color: var(--mute);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 7px 0;
+}
+
+/* =========================================================
+   FARMER HUB
+========================================================= */
+
+.hub-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.hub-language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--mute);
+    font-size: 12px;
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.hub-span {
+    grid-column: 1 / -1;
+}
+
+.hub-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 15px 0;
+}
+
+.hub-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hub-form input,
+.hub-form select {
+    width: 100%;
+}
+
+.hub-plot {
+    display: block;
+    width: 100%;
+    padding: 11px 13px;
+    margin: 7px 0;
+
+    color: var(--ink);
+    background: var(--surface-soft);
+
+    border: 1px solid var(--line);
+    border-radius: 9px;
+
+    text-align: left;
+}
+
+.hub-plot:hover,
+.hub-plot.selected {
+    background: var(--green-light);
+    border-color: var(--green);
+}
+
+.hub-source {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.status-off {
+    color: var(--warn);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.hub-weather {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hub-weather>div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.hub-weather strong {
+    color: var(--green);
+    font-size: 23px;
+}
+
+.hub-weather small {
+    color: var(--mute);
+}
+
+/* =========================================================
+   CHARTS
+========================================================= */
+
+canvas {
+    max-width: 100%;
+}
+
+.recharts-responsive-container {
+    min-width: 0;
+}
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+    .app>nav {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .app>main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .app>main>header {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .app>nav {
+        position: relative;
+
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .logo {
+        width: 100%;
+        padding: 5px 8px 10px;
+        font-size: 23px;
+    }
+
+    .app>nav button {
+        width: auto;
+        min-height: 38px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .app>nav small {
+        display: none;
+    }
+
+    .app>main {
+        padding: 0 14px 25px;
+    }
+
+    .app>main>header {
+        position: relative;
+        margin: 0 -14px 20px;
+        padding: 13px 14px;
+        gap: 8px;
+    }
+
+    .app>main>header select {
+        max-width: 100%;
+    }
+
+    .cols,
+    .hub-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hub-span {
+        grid-column: auto;
+    }
+
+    .hub-form {
+        grid-template-columns: 1fr;
+    }
+
+    .hub-weather {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 15px;
+    }
+
+    .gauge>span:first-child {
+        width: 90px;
+    }
+
+    .map,
+    .leaflet-container {
+        height: 380px;
+    }
+}
+
+/* =========================================
+   PRITHVIX FARMER HUB - FORM DESIGN
+========================================= */
+
+.farmer-hub-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.farmer-profile-form {
+    width: 100%;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #dce7da;
+    border-radius: 18px;
+}
+
+.farmer-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 27px;
+}
+
+.farmer-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    color: #183a32;
+}
+
+.farmer-field>span {
+    color: #183a32;
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0.35px;
+}
+
+.farmer-field input,
+.farmer-field select {
+    width: 100%;
+    min-width: 0;
+    height: 57px;
+    padding: 0 18px;
+    color: #183a32;
+    background: #eaf1ea;
+    border: 1px solid #d4e1d1;
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.farmer-field input:focus,
+.farmer-field select:focus {
+    border-color: #347b4c;
+    box-shadow: 0 0 0 3px rgba(52, 123, 76, 0.12);
+}
+
+.farmer-field input::placeholder {
+    color: #819186;
+}
+
+.farmer-size-control {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 125px;
+    gap: 10px;
+}
+
+.farmer-field-full {
+    grid-column: 1 / -1;
+}
+
+.farmer-form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 26px;
+}
+
+.farmer-form-actions .btn {
+    min-height: 43px;
+    padding: 10px 22px;
+    font-size: 14px;
+}
+
+.farmer-saved-message {
+    color: #287347;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .farmer-profile-form {
+        padding: 20px 16px;
+    }
+
+    .farmer-form-grid {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+
+    .farmer-field-full {
+        grid-column: auto;
+    }
+
+    .farmer-size-control {
+        grid-template-columns: minmax(0, 1fr) 115px;
+    }
+
+    .farmer-field input,
+    .farmer-field select {
+        height: 52px;
+    }
+}
+
+/* PrithviX brand logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
